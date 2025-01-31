@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>눈 오는 날 공부하는 랜딩 페이지</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?snow,study') no-repeat center center/cover;
+        }
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen text-white">
+    <div class="snow"></div>
+    <div class="bg-black bg-opacity-50 p-8 rounded-xl shadow-lg text-center">
+        <h1 class="text-4xl font-bold mb-4">눈 오는 날, 함께 공부해요!</h1>
+        <p class="text-lg mb-6">따뜻한 분위기 속에서 공부를 함께하며 목표를 이루어가요.</p>
+        <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">스터디 참여하기</a>
+    </div>
+    <script>
+        function createSnowFlakes() {
+            const snowContainer = document.querySelector('.snow');
+            for (let i = 0; i < 50; i++) {
+                let snowFlake = document.createElement('div');
+                snowFlake.style.position = 'absolute';
+                snowFlake.style.width = snowFlake.style.height = `${Math.random() * 5 + 5}px`;
+                snowFlake.style.background = 'white';
+                snowFlake.style.borderRadius = '50%';
+                snowFlake.style.opacity = Math.random();
+                snowFlake.style.left = `${Math.random() * 100}%`;
+                snowFlake.style.top = `${Math.random() * 100}%`;
+                snowFlake.style.animation = `fall ${Math.random() * 5 + 5}s linear infinite`;
+                snowContainer.appendChild(snowFlake);
+            }
+        }
+        createSnowFlakes();
+    </script>
+    <style>
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</body>
+</html>
